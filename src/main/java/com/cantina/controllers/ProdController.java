@@ -39,6 +39,15 @@ public class ProdController {
         return ResponseEntity.status(HttpStatus.OK).body(prodService.findAll(pageable));
     }
 
+    @GetMapping("/{id}")
+    public ResponseEntity<Object> getProd(@PathVariable(value = "id")UUID id){
+        Optional<ProdModel> prodModelOptional = prodService.findById(id);
+        if(!prodModelOptional.isPresent()){
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Prod not found");
+        }
+        return ResponseEntity.status(HttpStatus.OK).body(prodModelOptional.get());
+    }
+
     @PostMapping
     public ResponseEntity<Object> saveProd (@RequestBody @Valid ProdDto prodDto){
         var prodModel = new ProdModel();
