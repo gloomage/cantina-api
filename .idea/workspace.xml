@@ -5,14 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ccc83127-15b2-4487-8581-4f9f216a705f" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/cantina/controllers/ProdController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/cantina/dtos/ProdDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/cantina/models/ProdModel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/cantina/repositories/ProdRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/cantina/security/SecurityConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/cantina/services/ProdService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -96,7 +89,8 @@
       <workItem from="1663764254250" duration="93000" />
       <workItem from="1663764417886" duration="275000" />
       <workItem from="1663764794133" duration="1266000" />
-      <workItem from="1663766899479" duration="4624000" />
+      <workItem from="1663766899479" duration="4834000" />
+      <workItem from="1663779697378" duration="719000" />
     </task>
     <servers />
   </component>
