@@ -11,8 +11,8 @@ import java.util.Optional;
 import java.util.UUID;
 
 /* Anotação
-* @Service ->
-*  */
+ * @Service -> Demarca a class como um serviço
+ *  */
 
 @Service
 public class ProdService {
@@ -40,4 +40,5 @@ public class ProdService {
     public void delete(ProdModel prodModel) {
         prodRepository.delete(prodModel);
     }
+
 }

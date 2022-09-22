@@ -5,13 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ccc83127-15b2-4487-8581-4f9f216a705f" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/cantina/controllers/ParcController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/cantina/dtos/ParcDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/cantina/models/ParcModel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/cantina/repositories/ParcRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/cantina/services/ParcService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/cantina/controllers/ProdController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cantina/controllers/ProdController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/cantina/dtos/ProdDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cantina/dtos/ProdDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cantina/models/ProdModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cantina/models/ProdModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cantina/repositories/ProdRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cantina/repositories/ProdRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/cantina/security/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cantina/security/SecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cantina/services/ProdService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cantina/services/ProdService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/cantina/controllers/ProdController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/cantina/controllers/ProdController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/cantina/dtos/ProdDto.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/cantina/dtos/ProdDto.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/cantina/security/SecurityConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/cantina/security/SecurityConfig.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -99,6 +104,7 @@
       <workItem from="1663766899479" duration="4834000" />
       <workItem from="1663779697378" duration="6117000" />
       <workItem from="1663793768224" duration="140000" />
+      <workItem from="1663866063145" duration="4163000" />
     </task>
     <servers />
   </component>

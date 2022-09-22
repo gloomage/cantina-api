@@ -17,12 +17,6 @@ import javax.validation.Valid;
 import java.util.Optional;
 import java.util.UUID;
 
-/* Anotações
-* @RestController ->
-* @CrossOrigin ->
-* @RequestMapping ->
-* */
-
 @RestController
 @CrossOrigin(origins = "*", maxAge = 3680)
 @RequestMapping("/produtos")

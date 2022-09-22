@@ -18,7 +18,7 @@ import java.util.UUID;
 @Data
 @Entity
 @Table(name = "TB_PROD")
-public class ProdModel extends WebSecurityConfigurerAdapter implements Serializable {
+public class ProdModel implements Serializable {
 
     /* Primary Key UUID */
 
@@ -29,7 +29,6 @@ public class ProdModel extends WebSecurityConfigurerAdapter implements Serializa
     private UUID id;
 
     /* Propriedade
-    * NotBlank -> Validação
     * Column -> Marcação de coluna
     * */
 
