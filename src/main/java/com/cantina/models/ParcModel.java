@@ -12,17 +12,12 @@ import java.util.UUID;
 @Table(name = "TB_PARC")
 public class ParcModel implements Serializable {
 
-    /* Primary Key UUID */
 
     private static final long serialVersionUID = 1L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private UUID id;
-
-    /* Propriedade
-     * Column -> Marcação de coluna
-     * */
 
     @Column(nullable = false, length = 60)
     private String nomparc;
@@ -39,6 +34,7 @@ public class ParcModel implements Serializable {
     @Column(nullable = true, length = 11)
     private String telparc;
 
+    /* Trocar por um enum de status de cliente*/
     @Column(nullable = true, length = 50)
     private String sttparc;
 
