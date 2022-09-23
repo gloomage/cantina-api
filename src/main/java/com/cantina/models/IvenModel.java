@@ -5,14 +5,12 @@ import lombok.Data;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.math.BigDecimal;
-import java.time.LocalDateTime;
-import java.util.List;
 import java.util.UUID;
 
 @Data
 @Entity
-@Table(name = "TB_VEND")
-public class VendModel implements Serializable {
+@Table(name = "TB_IVEN")
+public class IvenModel implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
@@ -22,28 +20,29 @@ public class VendModel implements Serializable {
 
     @ManyToOne
     @JoinColumn(nullable = false)
-    private ParcModel parcModel;
+    private VendModel vendModel;
 
-    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @ManyToOne
     @JoinColumn(nullable = false)
-    private List<IvenModel> listIven;
+    private ProdModel prodModel;
 
     @Column(nullable = false)
-    private LocalDateTime datvend;
+    private Integer seqiven;
 
     @Column(nullable = false)
-    private BigDecimal vlbvend;
+    private Integer qntiven;
 
     @Column(nullable = false)
-    private BigDecimal vllvend;
+    private BigDecimal vlbiven;
+
+    @Column(nullable = false)
+    private BigDecimal vlliven;
 
     @Column(nullable = true)
-    private BigDecimal dsrvend;
+    private BigDecimal dsriven;
 
     @Column(nullable = true)
-    private BigDecimal dspvend;
+    private BigDecimal dspiven;
 
-    @Column(nullable = true)
-    private String sttvend;
 
 }

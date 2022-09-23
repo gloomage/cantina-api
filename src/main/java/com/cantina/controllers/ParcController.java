@@ -43,7 +43,6 @@ public class ParcController {
 
     @PostMapping
     public ResponseEntity<Object> saveParc (@RequestBody @Valid ParcDto parcDto){
-        System.out.println(parcDto);
         var parcModel = new ParcModel();
         BeanUtils.copyProperties(parcDto, parcModel);
         return ResponseEntity.status(HttpStatus.CREATED).body(parcService.save(parcModel));
