@@ -54,6 +54,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers(HttpMethod.POST,"/pagamentos").permitAll()
                 .antMatchers(HttpMethod.PUT,"/pagamentos/{id}").permitAll()
                 .antMatchers(HttpMethod.DELETE,"/pagamentos/{id}").permitAll()
+                /* TICKETS */
+                .antMatchers(HttpMethod.GET,"/tickets").permitAll()
+                .antMatchers(HttpMethod.GET,"/tickets/{id}").permitAll()
+                .antMatchers(HttpMethod.POST,"/tickets").permitAll()
+                .antMatchers(HttpMethod.PUT,"/tickets/{id}").permitAll()
+                .antMatchers(HttpMethod.DELETE,"/tickets/{id}").permitAll()
                 .anyRequest().authenticated().and().cors();
 
     }
