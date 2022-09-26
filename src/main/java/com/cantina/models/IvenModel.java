@@ -1,5 +1,6 @@
 package com.cantina.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -18,30 +19,35 @@ public class IvenModel implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private UUID id;
 
-    @ManyToOne
-    @JoinColumn(nullable = false)
-    private VendModel vendModel;
+    /* VENDA */
 
     @ManyToOne
-    @JoinColumn(nullable = false)
-    private ProdModel prodModel;
+    @JsonIgnore
+    @JoinColumn(name = "vend_id")
+    private VendModel venda;
 
-    @Column(nullable = false)
+    /* PRODUTO */
+
+    @ManyToOne
+    @JoinColumn(name = "prod_id")
+    private ProdModel produto;
+
+    @Column
     private Integer seqiven;
 
-    @Column(nullable = false)
+    @Column
     private Integer qntiven;
 
-    @Column(nullable = false)
+    @Column
     private BigDecimal vlbiven;
 
-    @Column(nullable = false)
+    @Column
     private BigDecimal vlliven;
 
-    @Column(nullable = true)
+    @Column
     private BigDecimal dsriven;
 
-    @Column(nullable = true)
+    @Column
     private BigDecimal dspiven;
 
 

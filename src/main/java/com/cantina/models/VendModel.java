@@ -1,5 +1,6 @@
 package com.cantina.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -21,12 +22,19 @@ public class VendModel implements Serializable {
     private UUID id;
 
     @ManyToOne
-    @JoinColumn(nullable = false)
-    private ParcModel parcModel;
+    @JoinColumn(
+            name = "parc_id",
+            nullable = false
+    )
+    private ParcModel parceiro;
 
-    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    @JoinColumn(nullable = false)
-    private List<IvenModel> listIven;
+    @OneToMany(
+            fetch = FetchType.LAZY,
+            cascade = CascadeType.ALL,
+            orphanRemoval = true,
+            mappedBy = "venda"
+    )
+    private List<IvenModel> itens;
 
     @Column(nullable = false)
     private LocalDateTime datvend;
@@ -37,13 +45,13 @@ public class VendModel implements Serializable {
     @Column(nullable = false)
     private BigDecimal vllvend;
 
-    @Column(nullable = true)
+    @Column(nullable = false)
     private BigDecimal dsrvend;
 
-    @Column(nullable = true)
+    @Column
     private BigDecimal dspvend;
 
-    @Column(nullable = true)
+    @Column(nullable = false)
     private String sttvend;
 
 }
