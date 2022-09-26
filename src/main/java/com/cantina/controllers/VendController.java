@@ -13,7 +13,10 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.persistence.Column;
 import javax.validation.Valid;
+import java.math.BigDecimal;
+import java.time.LocalDateTime;
 import java.util.Optional;
 import java.util.UUID;
 
@@ -37,6 +40,12 @@ public class VendController {
     public ResponseEntity<Object> saveVend (@RequestBody @Valid VendDto vendDto){
         var vendModel = new VendModel();
         BeanUtils.copyProperties(vendDto, vendModel);
+
+        /* Inserindo valores automaticos */
+        vendModel.setDatvend(LocalDateTime.now());
+//        vendModel.setVlbvend(new BigDecimal());
+//        vendModel.setVllvend();
+
         return ResponseEntity.status(HttpStatus.CREATED).body(vendService.save(vendModel));
     }
 
