@@ -4,7 +4,8 @@ public enum SttVend {
 
     PAG("PAGA", 1),
     PEN("PENDENTE", 2),
-    CAN("CANCELADA", 3);
+    CAN("CANCELADA", 3),
+    RET("RETORNADA", 4);
 
     private final String nomStts;
     private final Integer seqStts;

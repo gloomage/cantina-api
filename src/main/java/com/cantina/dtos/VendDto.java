@@ -12,13 +12,17 @@ import java.util.List;
 @Data
 public class VendDto {
 
-//    private ParcModel parcModel;
-//
-//    private List<IvenModel> listIven;
-//
-//    private BigDecimal dsrvend;
-//
-//    private BigDecimal dspvend;
-//
+    /* Escolhe o parceiro*/
+    private ParcModel parcModel;
+
+    /* Escolhe os itens da venda */
+    private List<IvenModel> itens;
+
+    /* Escolhe o desconto REAIS */
+    private BigDecimal dsrvend;
+
+    /* Escolhe o deconto em PORCENTAGEM */
+
+    /* Default Em aberto */
 //    private String sttvend;
 }

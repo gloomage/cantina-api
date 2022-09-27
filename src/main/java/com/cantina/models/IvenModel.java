@@ -2,13 +2,16 @@ package com.cantina.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 import javax.persistence.*;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.UUID;
 
-@Data
+@Getter
+@Setter
 @Entity
 @Table(name = "TB_IVEN")
 public class IvenModel implements Serializable {
@@ -49,6 +52,12 @@ public class IvenModel implements Serializable {
 
     @Column
     private BigDecimal dspiven;
+
+    public void calc_vlrAll(){
+        this.vlbiven = produto.getVlrprod().multiply(BigDecimal.valueOf(qntiven));
+    }
+
+
 
 
 }

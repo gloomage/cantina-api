@@ -70,6 +70,8 @@ public class VendController {
         Optional<ProdModel> prodModelOptional1 = prodService.findById(UUID.fromString("055b1694-7bae-477e-bae5-a70d315b9ff3")); //Coockie - 5,00
         Optional<ProdModel> prodModelOptional2 = prodService.findById(UUID.fromString("0cb4eff1-9600-4ef8-be0d-63f04cd3028a")); //Cerveja - 6,00
 
+
+
         var item1 = new IvenModel();
         var item2 = new IvenModel();
 
@@ -77,9 +79,10 @@ public class VendController {
         item1.setProduto(prodModelOptional1.get());
         item2.setProduto(prodModelOptional2.get());
 
-        //Sequencia no carinho
+        //Sequencia no carinh
+
         item1.setSeqiven(1);
-        item1.setSeqiven(2);
+        item2.setSeqiven(2);
 
         //Quantidade
         item1.setQntiven(2);
@@ -109,11 +112,23 @@ public class VendController {
         vendModel.setSttvend("Em aberto");
 
         //Insere na venda as listas
+        /*  TEM Q COLOCAR AS VENDAS NOS ITENS DA VENDA PRA PODER SALVAR, ERA ISSO Q FALTAVA */
+
+        System.out.println("passou 1");
+
+        item1.setVenda(vendModel);
+        item2.setVenda(vendModel);
+
+        System.out.println("passou 2");
+
         itens.add(item1);
         itens.add(item2);
 
+        System.out.println("passou 3");
+
         //salva
         System.out.println(vendModel);
+        System.out.println(item1.getVenda());
         vendService.save(vendModel);
         return ResponseEntity.status(HttpStatus.CREATED).body("Cavalooooo");
     }
@@ -126,6 +141,8 @@ public class VendController {
         }
         var vendModel = new VendModel();
         BeanUtils.copyProperties(vendDto, vendModel);
+
+
         vendModel.setId(vendModelOptional.get().getId());
         return ResponseEntity.status(HttpStatus.OK).body(vendService.save(vendModel));
     }
