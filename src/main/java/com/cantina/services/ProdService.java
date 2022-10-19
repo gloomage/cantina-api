@@ -2,11 +2,10 @@ package com.cantina.services;
 
 import com.cantina.models.ProdModel;
 import com.cantina.repositories.ProdRepository;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
@@ -19,8 +18,8 @@ public class ProdService {
         this.prodRepository = prodRepository;
     }
 
-    public Page<ProdModel> findAll(Pageable pageable) {
-        return prodRepository.findAll(pageable);
+    public List<ProdModel> findAll() {
+        return prodRepository.findAll();
     }
 
     @Transactional

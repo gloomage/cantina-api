@@ -1,6 +1,5 @@
 package com.cantina.models;
 
-import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -29,10 +28,10 @@ public class ParcModel implements Serializable {
     private String emlparc;
 
     @Column(nullable = true, length = 8)
-    private String cepparc;
+    private String cepparc; //Mudou String from String
 
     @Column(nullable = true, length = 4)
-    private Integer casparc;
+    private String casparc;
 
     @Column(nullable = true, length = 11)
     private String telparc;

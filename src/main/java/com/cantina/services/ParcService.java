@@ -7,6 +7,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
@@ -21,6 +22,10 @@ public class ParcService {
 
     public Page<ParcModel> findAll(Pageable pageable) {
         return parcRepository.findAll(pageable);
+    }
+
+    public List<ParcModel> findAllbyList() {
+        return parcRepository.findAll();
     }
 
     @Transactional

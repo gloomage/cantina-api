@@ -49,88 +49,45 @@ public class VendController {
         return ResponseEntity.status(HttpStatus.OK).body(vendService.findAll(pageable));
     }
 
-//    @GetMapping("/{id}")
-//    public ResponseEntity<Object> getTckt(@PathVariable(value = "id") UUID id){
-//        Optional<TcktModel> tcktModelOptional = tcktService.findById(id);
-//        if(!tcktModelOptional.isPresent()){
-//            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Tckt not found");
-//        }
-//        return ResponseEntity.status(HttpStatus.OK).body(tcktModelOptional.get());
-//    }
-
     @PostMapping
     public ResponseEntity<Object> saveVend (@RequestBody @Valid VendDto vendDto){
-        var vendModel = new VendModel();
-        BeanUtils.copyProperties(vendDto, vendModel);
 
-        /* Teste de Venda*/
-        //Primeiro cria lista de objetos q vem ser inseridos
-        List<IvenModel> itens = new ArrayList<>();
+        //DTO
         Optional<ParcModel> parcModelOptional = parcService.findById(UUID.fromString("b3017444-f780-4a5e-93fd-1418bc31eedf")); //cliente
         Optional<ProdModel> prodModelOptional1 = prodService.findById(UUID.fromString("055b1694-7bae-477e-bae5-a70d315b9ff3")); //Coockie - 5,00
         Optional<ProdModel> prodModelOptional2 = prodService.findById(UUID.fromString("0cb4eff1-9600-4ef8-be0d-63f04cd3028a")); //Cerveja - 6,00
 
+        if(!parcModelOptional.isPresent()){
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Parc not found");
+        }
+        vendDto.setParcModel(parcModelOptional.get());
 
 
-        var item1 = new IvenModel();
-        var item2 = new IvenModel();
+        var vendModel = new VendModel();
+        BeanUtils.copyProperties(vendDto, vendModel);
 
-        //set prod no item
-        item1.setProduto(prodModelOptional1.get());
-        item2.setProduto(prodModelOptional2.get());
+        /* JA CONTEM O PARCEIRO / LIST<ITENS> / DESCONTOS R&P */
 
-        //Sequencia no carinh
-
-        item1.setSeqiven(1);
-        item2.setSeqiven(2);
-
-        //Quantidade
-        item1.setQntiven(2);
-        item2.setQntiven(4);
-
-        //Valor bruto
-        item1.setVlbiven(new BigDecimal("10.00"));
-        item2.setVlbiven(new BigDecimal("24.00"));
-
-        //Valor liquido
-        item1.setVlliven(new BigDecimal("10.00"));
-        item2.setVlliven(new BigDecimal("20.00"));
-
-        //desconto em reais
-        item1.setDsriven(new BigDecimal("0.00"));
-        item2.setDsriven(new BigDecimal("4.00"));
-
-        /* ----------------------------------------- */
-
-        //Completa a venda
-        vendModel.setParceiro(parcModelOptional.get());
-        vendModel.setItens(itens);
+        /* Data */
         vendModel.setDatvend(LocalDateTime.now());
-        vendModel.setVlbvend(new BigDecimal("34.00"));
+        /* Valor Bruto */
+        BigDecimal vlrTotalVend = new BigDecimal("0");
+        for (IvenModel ivenModel : vendModel.getItens()){
+            vlrTotalVend.add(ivenModel.getVlbiven());
+        }
+        vendModel.setVlbvend(vlrTotalVend);
+        /* Valor Liquido */
         vendModel.setVllvend(new BigDecimal("30.00"));
-        vendModel.setDsrvend(new BigDecimal("4.00"));
+
         vendModel.setSttvend("Em aberto");
 
-        //Insere na venda as listas
-        /*  TEM Q COLOCAR AS VENDAS NOS ITENS DA VENDA PRA PODER SALVAR, ERA ISSO Q FALTAVA */
+        //INSERIR VENDA NOS ITENS DO PRODUTO
 
-        System.out.println("passou 1");
+        for(IvenModel ivenModel : vendModel.getItens()){
+            ivenModel.setVenda(vendModel);
+        }
 
-        item1.setVenda(vendModel);
-        item2.setVenda(vendModel);
-
-        System.out.println("passou 2");
-
-        itens.add(item1);
-        itens.add(item2);
-
-        System.out.println("passou 3");
-
-        //salva
-        System.out.println(vendModel);
-        System.out.println(item1.getVenda());
-        vendService.save(vendModel);
-        return ResponseEntity.status(HttpStatus.CREATED).body("Cavalooooo");
+        return ResponseEntity.status(HttpStatus.CREATED).body(vendService.save(vendModel));
     }
 
     @PutMapping("/{id}")

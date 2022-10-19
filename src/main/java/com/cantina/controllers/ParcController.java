@@ -13,6 +13,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
@@ -28,8 +29,8 @@ public class ParcController {
     }
 
     @GetMapping
-    public ResponseEntity<Page<ParcModel>> getAll(@PageableDefault(page = 0, size = 10, sort = "id", direction = Sort.Direction.ASC) Pageable pageable){
-        return ResponseEntity.status(HttpStatus.OK).body(parcService.findAll(pageable));
+    public ResponseEntity<List<ParcModel>> getAll(){
+        return ResponseEntity.status(HttpStatus.OK).body(parcService.findAllbyList());
     }
 
     @GetMapping("/{id}")

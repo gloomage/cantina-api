@@ -14,12 +14,13 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
 @RestController
 @CrossOrigin(origins = "*", maxAge = 3680)
-@RequestMapping("/produtos")
+@RequestMapping("/api/v1/publica/prod")
 public class ProdController {
 
     final ProdService prodService;
@@ -29,8 +30,8 @@ public class ProdController {
     }
 
     @GetMapping
-    public ResponseEntity<Page<ProdModel>> getAll(@PageableDefault(page = 0, size = 10, sort = "id", direction = Sort.Direction.ASC) Pageable pageable){
-        return ResponseEntity.status(HttpStatus.OK).body(prodService.findAll(pageable));
+    public ResponseEntity<List<ProdModel>> getAll(){
+        return ResponseEntity.status(HttpStatus.OK).body(prodService.findAll());
     }
 
     @GetMapping("/{id}")

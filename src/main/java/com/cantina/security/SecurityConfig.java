@@ -19,11 +19,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         httpSec.csrf().disable()
                 .authorizeHttpRequests()
                 /* PRODUTO */
-                .antMatchers(HttpMethod.GET,"/produtos").permitAll()
-                .antMatchers(HttpMethod.GET,"/produtos/{id}").permitAll()
-                .antMatchers(HttpMethod.POST,"/produtos").permitAll()
-                .antMatchers(HttpMethod.PUT,"/produtos/{id}").permitAll()
-                .antMatchers(HttpMethod.DELETE,"/produtos/{id}").permitAll()
+                .antMatchers(HttpMethod.GET,"/api/v1/publica/prod").permitAll()
+                .antMatchers(HttpMethod.GET,"/api/v1/publica/prod/{id}").permitAll()
+                .antMatchers(HttpMethod.POST,"/api/v1/publica/prod").permitAll()
+                .antMatchers(HttpMethod.PUT,"/api/v1/publica/prod/{id}").permitAll()
+                .antMatchers(HttpMethod.DELETE,"/api/v1/publica/prod/{id}").permitAll()
                 /* CLIENTE */
                 .antMatchers(HttpMethod.GET,"/parceiros").permitAll()
                 .antMatchers(HttpMethod.GET,"/parceiros/{id}").permitAll()

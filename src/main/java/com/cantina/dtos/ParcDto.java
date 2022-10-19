@@ -2,7 +2,9 @@ package com.cantina.dtos;
 
 import lombok.Data;
 
+import javax.persistence.Column;
 import javax.validation.constraints.NotBlank;
+import java.math.BigDecimal;
 
 @Data
 public class ParcDto {
@@ -14,7 +16,7 @@ public class ParcDto {
 
     private String cepparc;
 
-    private Integer casparc;
+    private String casparc;
 
     private String telparc;
 
@@ -23,4 +25,8 @@ public class ParcDto {
     private String cpfparc;
 
     private String cnpparc;
+
+    private BigDecimal vlcparc;
+
+    private BigDecimal vldparc;
 }
